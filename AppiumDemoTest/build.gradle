@@ -1,14 +1,16 @@
+plugins {
+    id 'java'
+    id 'eclipse'
+}
+
 group 'com.experitest'
 version '1.0-SNAPSHOT'
 
-apply plugin: 'java'
-apply plugin: 'eclipse'
-
 repositories {
-	mavenCentral()
-	maven {
-		url "https://cloud.experitest.com/repo/"
-	}
+    mavenCentral()
+    maven {
+        url "https://cloud.experitest.com/repo/"
+    }
 }
 
 eclipse {
@@ -29,8 +31,11 @@ sourceSets {
 }
 
 dependencies {
-	implementation 'junit:junit:4.12'
-	implementation 'io.appium:java-client:6.1.0'
-	implementation 'com.experitest:appium-seetest-extension:25.3'
-	implementation 'com.experitest:repo:+'
+    implementation 'io.appium:java-client:7.6.0'
+    implementation 'org.junit.jupiter:junit-jupiter:5.10.0'
+    implementation 'org.seleniumhq.selenium:selenium-java:3.141.59'
+}
+
+test {
+    useJUnitPlatform()
 }
