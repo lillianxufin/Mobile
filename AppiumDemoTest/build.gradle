@@ -29,8 +29,8 @@ sourceSets {
 }
 
 dependencies {
-	compile 'junit:junit:4.12'
-	compile 'io.appium:java-client:6.1.0'
-	compile 'com.experitest:appium-seetest-extension:25.3'
-	compile 'com.experitest:repo:+'
+	implementation 'junit:junit:4.12'
+	implementation 'io.appium:java-client:6.1.0'
+	implementation 'com.experitest:appium-seetest-extension:25.3'
+	implementation 'com.experitest:repo:+'
 }

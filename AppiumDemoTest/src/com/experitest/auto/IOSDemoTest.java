@@ -18,8 +18,8 @@ public class IOSDemoTest extends BaseTest {
 	public void setUp() throws Exception {
 		init("@os='ios'");
 		// Init application / device capabilities
-		dc.setCapability(MobileCapabilityType.APP, "cloud:com.experitest.ExperiBank");
-		dc.setCapability(IOSMobileCapabilityType.BUNDLE_ID, "com.experitest.ExperiBank");
+		//dc.setCapability(MobileCapabilityType.APP, "cloud:com.experitest.ExperiBank");
+		//dc.setCapability(IOSMobileCapabilityType.BUNDLE_ID, "com.experitest.ExperiBank");
 		dc.setCapability("testName", "IOSDemoTest");
 		driver = new IOSDriver<>(new URL(getProperty("url",cloudProperties) + "/wd/hub"), dc);
 	}
@@ -27,7 +27,7 @@ public class IOSDemoTest extends BaseTest {
 	@Test
 	public void test() {
 		// Enter the test code
-		System.out.println("Run test");
+
 	}
 
 	@After
