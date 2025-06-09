@@ -1,20 +1,35 @@
 package main.java.gateway;
 
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.ios.IOSDriver;
 import main.java.Page.LoginPage;
 
 public class LoginGateway {
-	private AndroidDriver<AndroidElement> driver;
-	private LoginPage loginPage;
-	public LoginGateway(AndroidDriver<AndroidElement> driver) {
-		this.driver = driver;
-		loginPage = new LoginPage(driver);
-	}
-	
-	public void userLogIn(String username, String password) {
-		loginPage.sendUserName(username);
-		loginPage.sendPassword(password);
-		loginPage.clickLoginButton();
-	}
+    private AppiumDriver<? extends MobileElement> driver;
+    private LoginPage loginPage;
+    
+    // Constructor for AppiumDriver (handles both Android and iOS)
+    public LoginGateway(AppiumDriver<? extends MobileElement> driver) {
+        this.driver = driver;
+        loginPage = new LoginPage(driver);
+    }
+    
+    public void userLogIn(String username, String password) {
+        loginPage.sendUserName(username);
+        loginPage.sendPassword(password);
+        loginPage.clickLoginButton();
+    }
+    
+    // Method to get platform type for platform-specific operations if needed
+    public String getPlatformName() {
+        if (driver instanceof AndroidDriver) {
+            return "Android";
+        } else if (driver instanceof IOSDriver) {
+            return "iOS";
+        } else {
+            return "Unknown";
+        }
+    }
 }

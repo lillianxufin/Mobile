@@ -4,21 +4,22 @@ import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import main.java.gateway.LoginGateway;
 
 public class AndroidDemoTest extends BaseTest {
-    protected AndroidDriver<AndroidElement> driver = null;
+	protected AppiumDriver<? extends MobileElement> driver = null;
     private LoginGateway loginGateway;
     private WebDriverWait wait;
     @BeforeEach

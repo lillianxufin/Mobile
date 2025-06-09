@@ -2,9 +2,9 @@ package com.experitest.auto;
 
 import java.net.URL;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.ios.IOSElement;
@@ -14,7 +14,7 @@ import io.appium.java_client.remote.MobileCapabilityType;
 public class IOSDemoTest extends BaseTest {
 	protected IOSDriver<IOSElement> driver = null;
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		init("@os='ios'");
 		// Init application / device capabilities
@@ -34,7 +34,7 @@ public class IOSDemoTest extends BaseTest {
 
 	}
 
-	@After
+	@AfterEach
 	public void tearDown() {
 		driver.quit();
 	}
