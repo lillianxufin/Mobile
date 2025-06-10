@@ -11,6 +11,7 @@ public class LoginPage {
     private By usernameField;
     private By passwordField;
     private By loginButton;
+    private By alertBy;
     
     public LoginPage(AppiumDriver<? extends MobileElement> driver) {
         this.driver = driver;
@@ -24,11 +25,13 @@ public class LoginPage {
             usernameField = By.id("usernameTextField");
             passwordField = By.id("passwordTextField");
             loginButton = By.id("loginButton");
+            alertBy = By.id("android:id/alertTitle");
         } else if (platform.equals("iOS")) {
             // iOS locators - update these based on your iOS app
-            usernameField = By.id("usernameTextField");
-            passwordField = By.id("passwordTextField");
-            loginButton = By.id("loginButton");
+            usernameField = By.xpath("//*[@label='usernameTextField']");
+            passwordField = By.xpath("//*[@label='passwordTextField']");
+            loginButton = By.xpath("//*[@label='Login']");
+            alertBy = By.id("//*[@label='alertTitle']");
         }
     }
     
@@ -44,6 +47,10 @@ public class LoginPage {
     
     public void clickLoginButton() {
         driver.findElement(loginButton).click();
+    }
+    
+    public MobileElement getErrorAlertElement() {
+    	return driver.findElement(alertBy);
     }
     
     // Method to get platform type for platform-specific operations if needed

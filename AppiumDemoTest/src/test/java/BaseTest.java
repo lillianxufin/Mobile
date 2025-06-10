@@ -1,4 +1,4 @@
-package com.experitest.auto;
+package test.java;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;

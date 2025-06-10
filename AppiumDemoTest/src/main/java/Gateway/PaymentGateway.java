@@ -1,26 +1,30 @@
-package main.java.gateway;
+package main.java.Gateway;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
-import main.java.Page.LoginPage;
+import main.java.Page.MakePaymentPage;
 
-public class LoginGateway {
+public class PaymentGateway {
     private AppiumDriver<? extends MobileElement> driver;
-    private LoginPage loginPage;
+    private MakePaymentPage paymentPage;
     
     // Constructor for AppiumDriver (handles both Android and iOS)
-    public LoginGateway(AppiumDriver<? extends MobileElement> driver) {
+    public PaymentGateway(AppiumDriver<? extends MobileElement> driver) {
         this.driver = driver;
-        loginPage = new LoginPage(driver);
+        paymentPage = new MakePaymentPage(driver);
     }
     
-    public void userLogIn(String username, String password) {
-        loginPage.sendUserName(username);
-        loginPage.sendPassword(password);
-        loginPage.clickLoginButton();
+    public void makeAPayment(String phone, String name, String amount, String country) {
+    	paymentPage.fillInPhone(phone);
+    	paymentPage.fillInAmount(amount);
+    	paymentPage.fillInCountry(country);
+    	paymentPage.fillInName(name);
+    	paymentPage.clickSendPayment();
+    	paymentPage.clickYes();
     }
+    
     
     // Method to get platform type for platform-specific operations if needed
     public String getPlatformName() {
